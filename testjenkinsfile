@@ -19,7 +19,7 @@ pipeline{
             steps {
                 sh 'curl -uadmin:admin1234 -T \
                 *.tgz \
-                "http://ec2-52-23-178-22.compute-1.amazonaws.com:8081/artifactory/utc-nodejs/utc-app-${BUILD_ID}.tgz"'
+                "http://ec2-52-23-178-22.compute-1.amazonaws.com:8081/artifactory/utc-nodejs/utc-app-3.tgz"'
             }
         }
 
