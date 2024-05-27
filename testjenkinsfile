@@ -11,9 +11,18 @@ pipeline{
         }
         stage('package'){
             steps{
+                sh 'rm -rf*.tgz || echo ""'
                 sh 'npm pack'
             }
         }
+        stage('upload artifact'){
+            steps {
+                sh 'curl -u<USERNAME>:<PASSWORD> -T \
+                *.tgz \
+                "http://ec2-52-23-178-22.compute-1.amazonaws.com:8081/artifactory/utc-nodejs/utc-app-${BUILD_ID}.tgz"'
+            }
+        }
+
     }
 
 }
